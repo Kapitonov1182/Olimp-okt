@@ -1,6 +1,13 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Clock, Calendar, DollarSign } from "lucide-react";
+import { RubleSign } from "@/icons";
 
 const Schedule = () => {
   const scheduleData = [
@@ -10,7 +17,7 @@ const Schedule = () => {
       schedule: "Понедельник - Пятница: 16:00 - 21:00",
       weekend: "Суббота: 16:00 - 20:00",
       trainer: "Шарипов Р.Н.",
-      type: "Групповые и индивидуальные"
+      type: "Групповые и индивидуальные",
     },
     {
       title: "Фитнес (групповые)",
@@ -18,7 +25,7 @@ const Schedule = () => {
       schedule: "Понедельник - Пятница: 16:00 и 20:00",
       weekend: "Выходной: Воскресенье",
       trainer: "Закирова Саира",
-      type: "Групповые занятия"
+      type: "Групповые занятия",
     },
     {
       title: "Персональные тренировки",
@@ -26,15 +33,15 @@ const Schedule = () => {
       schedule: "По договоренности",
       weekend: "Гибкий график",
       trainer: "Газизова Э.Р.",
-      type: "Индивидуальные"
-    }
+      type: "Индивидуальные",
+    },
   ];
 
   const prices = [
     { type: "Разовое посещение", price: "280", unit: "руб." },
     { type: "Абонемент на 10 занятий", price: "2600", unit: "руб." },
     { type: "Абонемент на 12 занятий", price: "2800", unit: "руб." },
-    { type: "Абонемент на 15 занятий", price: "3400", unit: "руб." }
+    { type: "Абонемент на 15 занятий", price: "3400", unit: "руб." },
   ];
 
   return (
@@ -46,7 +53,7 @@ const Schedule = () => {
             Удобное расписание занятий и доступные цены на все виды тренировок
           </p>
         </div>
-        
+
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
           {/* Schedule */}
           <div>
@@ -56,7 +63,10 @@ const Schedule = () => {
             </h3>
             <div className="space-y-6">
               {scheduleData.map((item, index) => (
-                <Card key={index} className="bg-gradient-card border-border shadow-card">
+                <Card
+                  key={index}
+                  className="bg-gradient-card border-border shadow-card"
+                >
                   <CardHeader>
                     <CardTitle className="flex items-center justify-between">
                       {item.title}
@@ -82,40 +92,55 @@ const Schedule = () => {
               ))}
             </div>
           </div>
-          
+
           {/* Prices */}
           <div>
             <h3 className="text-2xl font-bold mb-6 flex items-center">
-              <DollarSign className="w-6 h-6 mr-2 text-primary" />
+              <RubleSign className="w-6 h-6 mr-2 text-primary relative top-1" />
               Стоимость занятий
             </h3>
             <div className="space-y-4">
               {prices.map((price, index) => (
-                <Card key={index} className="bg-gradient-card border-border shadow-card hover:shadow-glow transition-all duration-300">
+                <Card
+                  key={index}
+                  className="bg-gradient-card border-border shadow-card hover:shadow-glow transition-all duration-300"
+                >
                   <CardContent className="p-6">
                     <div className="flex items-center justify-between">
                       <div>
-                        <h4 className="font-semibold text-foreground">{price.type}</h4>
+                        <h4 className="font-semibold text-foreground">
+                          {price.type}
+                        </h4>
                         {index > 0 && (
                           <p className="text-sm text-muted-foreground">
-                            {Math.round(parseInt(price.price) / (index === 1 ? 10 : index === 2 ? 12 : 15))} руб. за занятие
+                            {Math.round(
+                              parseInt(price.price) /
+                                (index === 1 ? 10 : index === 2 ? 12 : 15)
+                            )}{" "}
+                            руб. за занятие
                           </p>
                         )}
                       </div>
                       <div className="text-right">
-                        <span className="text-2xl font-bold text-primary">{price.price}</span>
-                        <span className="text-muted-foreground ml-1">{price.unit}</span>
+                        <span className="text-2xl font-bold text-primary">
+                          {price.price}
+                        </span>
+                        <span className="text-muted-foreground ml-1">
+                          {price.unit}
+                        </span>
                       </div>
                     </div>
                   </CardContent>
                 </Card>
               ))}
             </div>
-            
+
             {/* Special offer */}
             <Card className="mt-6 bg-gradient-button border-primary shadow-glow">
               <CardContent className="p-6 text-center">
-                <h4 className="font-bold text-primary-foreground mb-2">💪 Лучшее предложение!</h4>
+                <h4 className="font-bold text-primary-foreground mb-2">
+                  💪 Лучшее предложение!
+                </h4>
                 <p className="text-primary-foreground/90 text-sm">
                   Абонемент на 15 занятий - всего 227 рублей за тренировку!
                 </p>
@@ -123,14 +148,16 @@ const Schedule = () => {
             </Card>
           </div>
         </div>
-        
+
         {/* Working hours */}
         <Card className="bg-muted/50 border-border">
           <CardContent className="p-8 text-center">
             <h3 className="text-xl font-bold mb-4">Режим работы</h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm">
               <div>
-                <div className="font-semibold text-primary mb-1">Понедельник - Пятница</div>
+                <div className="font-semibold text-primary mb-1">
+                  Понедельник - Пятница
+                </div>
                 <div className="text-muted-foreground">16:00 - 21:00</div>
               </div>
               <div>
@@ -138,7 +165,9 @@ const Schedule = () => {
                 <div className="text-muted-foreground">16:00 - 20:00</div>
               </div>
               <div>
-                <div className="font-semibold text-destructive mb-1">Воскресенье</div>
+                <div className="font-semibold text-destructive mb-1">
+                  Воскресенье
+                </div>
                 <div className="text-muted-foreground">Выходной</div>
               </div>
             </div>
