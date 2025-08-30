@@ -9,7 +9,7 @@ const Header = () => {
           <div className="flex items-center space-x-2">
             <div className="w-8 h-7 bg-gradient-button rounded-full flex items-center justify-center">
               <img
-                src="/olimp-image.png"
+                src="olimp-image.png"
                 alt="Логотип"
                 className="w-8 h-8 object-contain"
               />
