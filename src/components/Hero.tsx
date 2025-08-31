@@ -25,7 +25,7 @@ const Hero = () => {
           </div>
 
           {/* Main Title */}
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent text-center">
+          <h1 className="text-5xl md:text-7xl font-bold mt-8 md:mt-0 mb-6 bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent text-center">
             <span className="block text-xl md:text-2xl mb-2">
               ОЛДСКУЛЬНЫЙ СПОРТКЛУБ
             </span>
